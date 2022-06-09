@@ -67,7 +67,7 @@ sonar.ping(text="えーん。憂鬱だー？？？？？")
 sonar.ping(text="")
 
 
-import oseti 
+import sentiment_analysis.oseti as oseti 
 
 analyzer = oseti.Analyzer()
 

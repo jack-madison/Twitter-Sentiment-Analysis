@@ -56,8 +56,21 @@ string_list = [
 results = []
 
 for string in string_list:
-    results.append({'tweet_text': string, "oseti_score": analyzer.analyze(str(string))})
+    polarities = analyzer.count_polarity(str(string))
+
+    positive = 0
+    negative = 0
+
+    for sentence in polarities:
+        positive = positive + sentence['positive']
+        negative = negative + sentence['negative']
+
+    results.append({'tweet_text': string, "positive_count": positive, "negative_count": negative})
 
 df = pd.DataFrame(results)
+
+df['oseti_score1'] = df['positive_count'] - df['negative_count']
+
+df['oseti_score2'] = df['oseti_score1'] / (df['positive_count'] + df['negative_count'])
         
 df.to_csv('./results.csv', index = False)

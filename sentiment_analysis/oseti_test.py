@@ -1,4 +1,4 @@
-import sentiment_analysis.oseti as oseti
+import oseti
 import pandas as pd
 
 analyzer = oseti.Analyzer()
@@ -71,6 +71,9 @@ df = pd.DataFrame(results)
 
 df['oseti_score1'] = df['positive_count'] - df['negative_count']
 
-df['oseti_score2'] = df['oseti_score1'] / (df['positive_count'] + df['negative_count'])
+if df['positive_count'] + df['negative_count'] != 0:
+    df['oseti_score2'] = df['oseti_score1'] / (df['positive_count'] + df['negative_count'])
+else:
+    df['oseti_score2'] = 0
         
 df.to_csv('./results.csv', index = False)

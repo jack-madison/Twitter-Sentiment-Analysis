@@ -11,7 +11,7 @@ tweets['positive'] = np.nan
 tweets['negative'] = np.nan
 
 for x in range(len(tweets)):
-    polarities = analyzer.count_polarity(str(tweets['tweet_text'][x]))
+    polarities = analyzer.count_polarity(str(tweets['tweet_text'][x]).replace('\n', ' ').replace('\r', ' '))
 
     positive = 0
     negative = 0

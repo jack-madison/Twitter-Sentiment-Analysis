@@ -3,11 +3,11 @@ import numpy as np
 import pytz
 
 # Import all of the data for 2019
-tweets_feb = pd.read_csv('./all_tweets/tweet_data/2019/02_2019.csv')
-tweets_mar = pd.read_csv('./all_tweets/tweet_data/2019/03_2019.csv')
-tweets_apr = pd.read_csv('./all_tweets/tweet_data/2019/04_2019.csv')
-tweets_may = pd.read_csv('./all_tweets/tweet_data/2019/05_2019.csv')
-tweets_jun = pd.read_csv('./all_tweets/tweet_data/2019/06_2019.csv')
+tweets_feb = pd.read_csv('./1_tweets_raw/2019/02_2019.csv')
+tweets_mar = pd.read_csv('./1_tweets_raw/2019/03_2019.csv')
+tweets_apr = pd.read_csv('./1_tweets_raw/2019/04_2019.csv')
+tweets_may = pd.read_csv('./1_tweets_raw/2019/05_2019.csv')
+tweets_jun = pd.read_csv('./1_tweets_raw/2019/06_2019.csv')
 
 # Concatinate the data into one dataframe
 tweets = pd.concat([tweets_feb, tweets_mar, tweets_apr, tweets_may, tweets_jun], axis = 0, join = 'outer')
@@ -39,47 +39,47 @@ tweets_feb_w2 = tweets.loc[(tweets['tweet_created_at'] >= '2019-02-08') & (tweet
 tweets_feb_w3 = tweets.loc[(tweets['tweet_created_at'] >= '2019-02-14') & (tweets['tweet_created_at'] < '2019-02-21')]
 tweets_feb_w4 = tweets.loc[(tweets['tweet_created_at'] >= '2019-02-21') & (tweets['tweet_created_at'] < '2019-03-01')]
 
-tweets_feb_w1.to_csv('./all_tweets/prepared_tweets/2019/feb_w1_2019.csv', index = False)
-tweets_feb_w2.to_csv('./all_tweets/prepared_tweets/2019/feb_w2_2019.csv', index = False)
-tweets_feb_w3.to_csv('./all_tweets/prepared_tweets/2019/feb_w3_2019.csv', index = False)
-tweets_feb_w4.to_csv('./all_tweets/prepared_tweets/2019/feb_w4_2019.csv', index = False)
+tweets_feb_w1.to_csv('./2_tweets_cleaned/2019/feb_w1_2019.csv', index = False)
+tweets_feb_w2.to_csv('./2_tweets_cleaned/2019/feb_w2_2019.csv', index = False)
+tweets_feb_w3.to_csv('./2_tweets_cleaned/2019/feb_w3_2019.csv', index = False)
+tweets_feb_w4.to_csv('./2_tweets_cleaned/2019/feb_w4_2019.csv', index = False)
 
 tweets_mar_w1 = tweets.loc[(tweets['tweet_created_at'] >= '2019-03-01') & (tweets['tweet_created_at'] < '2019-03-08')]
 tweets_mar_w2 = tweets.loc[(tweets['tweet_created_at'] >= '2019-03-08') & (tweets['tweet_created_at'] < '2019-03-14')]
 tweets_mar_w3 = tweets.loc[(tweets['tweet_created_at'] >= '2019-03-14') & (tweets['tweet_created_at'] < '2019-03-21')]
 tweets_mar_w4 = tweets.loc[(tweets['tweet_created_at'] >= '2019-03-21') & (tweets['tweet_created_at'] < '2019-04-01')]
 
-tweets_mar_w1.to_csv('./all_tweets/prepared_tweets/2019/mar_w1_2019.csv', index = False)
-tweets_mar_w2.to_csv('./all_tweets/prepared_tweets/2019/mar_w2_2019.csv', index = False)
-tweets_mar_w3.to_csv('./all_tweets/prepared_tweets/2019/mar_w3_2019.csv', index = False)
-tweets_mar_w4.to_csv('./all_tweets/prepared_tweets/2019/mar_w4_2019.csv', index = False)
+tweets_mar_w1.to_csv('./2_tweets_cleaned/2019/mar_w1_2019.csv', index = False)
+tweets_mar_w2.to_csv('./2_tweets_cleaned/2019/mar_w2_2019.csv', index = False)
+tweets_mar_w3.to_csv('./2_tweets_cleaned/2019/mar_w3_2019.csv', index = False)
+tweets_mar_w4.to_csv('./2_tweets_cleaned/2019/mar_w4_2019.csv', index = False)
 
 tweets_apr_w1 = tweets.loc[(tweets['tweet_created_at'] >= '2019-04-01') & (tweets['tweet_created_at'] < '2019-04-08')]
 tweets_apr_w2 = tweets.loc[(tweets['tweet_created_at'] >= '2019-04-08') & (tweets['tweet_created_at'] < '2019-04-14')]
 tweets_apr_w3 = tweets.loc[(tweets['tweet_created_at'] >= '2019-04-14') & (tweets['tweet_created_at'] < '2019-04-21')]
 tweets_apr_w4 = tweets.loc[(tweets['tweet_created_at'] >= '2019-04-21') & (tweets['tweet_created_at'] < '2019-05-01')]
 
-tweets_apr_w1.to_csv('./all_tweets/prepared_tweets/2019/apr_w1_2019.csv', index = False)
-tweets_apr_w2.to_csv('./all_tweets/prepared_tweets/2019/apr_w2_2019.csv', index = False)
-tweets_apr_w3.to_csv('./all_tweets/prepared_tweets/2019/apr_w3_2019.csv', index = False)
-tweets_apr_w4.to_csv('./all_tweets/prepared_tweets/2019/apr_w4_2019.csv', index = False)
+tweets_apr_w1.to_csv('./2_tweets_cleaned/2019/apr_w1_2019.csv', index = False)
+tweets_apr_w2.to_csv('./2_tweets_cleaned/2019/apr_w2_2019.csv', index = False)
+tweets_apr_w3.to_csv('./2_tweets_cleaned/2019/apr_w3_2019.csv', index = False)
+tweets_apr_w4.to_csv('./2_tweets_cleaned/2019/apr_w4_2019.csv', index = False)
 
 tweets_may_w1 = tweets.loc[(tweets['tweet_created_at'] >= '2019-05-01') & (tweets['tweet_created_at'] < '2019-05-08')]
 tweets_may_w2 = tweets.loc[(tweets['tweet_created_at'] >= '2019-05-08') & (tweets['tweet_created_at'] < '2019-05-14')]
 tweets_may_w3 = tweets.loc[(tweets['tweet_created_at'] >= '2019-05-14') & (tweets['tweet_created_at'] < '2019-05-21')]
 tweets_may_w4 = tweets.loc[(tweets['tweet_created_at'] >= '2019-05-21') & (tweets['tweet_created_at'] < '2019-06-01')]
 
-tweets_may_w1.to_csv('./all_tweets/prepared_tweets/2019/may_w1_2019.csv', index = False)
-tweets_may_w2.to_csv('./all_tweets/prepared_tweets/2019/may_w2_2019.csv', index = False)
-tweets_may_w3.to_csv('./all_tweets/prepared_tweets/2019/may_w3_2019.csv', index = False)
-tweets_may_w4.to_csv('./all_tweets/prepared_tweets/2019/may_w4_2019.csv', index = False)
+tweets_may_w1.to_csv('./2_tweets_cleaned/2019/may_w1_2019.csv', index = False)
+tweets_may_w2.to_csv('./2_tweets_cleaned/2019/may_w2_2019.csv', index = False)
+tweets_may_w3.to_csv('./2_tweets_cleaned/2019/may_w3_2019.csv', index = False)
+tweets_may_w4.to_csv('./2_tweets_cleaned/2019/may_w4_2019.csv', index = False)
 
 tweets_jun_w1 = tweets.loc[(tweets['tweet_created_at'] >= '2019-06-01') & (tweets['tweet_created_at'] < '2019-06-08')]
 tweets_jun_w2 = tweets.loc[(tweets['tweet_created_at'] >= '2019-06-08') & (tweets['tweet_created_at'] < '2019-06-14')]
 tweets_jun_w3 = tweets.loc[(tweets['tweet_created_at'] >= '2019-06-14') & (tweets['tweet_created_at'] < '2019-06-21')]
 tweets_jun_w4 = tweets.loc[(tweets['tweet_created_at'] >= '2019-06-21') & (tweets['tweet_created_at'] < '2019-07-01')]
 
-tweets_jun_w1.to_csv('./all_tweets/prepared_tweets/2019/jun_w1_2019.csv', index = False)
-tweets_jun_w2.to_csv('./all_tweets/prepared_tweets/2019/jun_w2_2019.csv', index = False)
-tweets_jun_w3.to_csv('./all_tweets/prepared_tweets/2019/jun_w3_2019.csv', index = False)
-tweets_jun_w4.to_csv('./all_tweets/prepared_tweets/2019/jun_w4_2019.csv', index = False)
+tweets_jun_w1.to_csv('./2_tweets_cleaned/2019/jun_w1_2019.csv', index = False)
+tweets_jun_w2.to_csv('./2_tweets_cleaned/2019/jun_w2_2019.csv', index = False)
+tweets_jun_w3.to_csv('./2_tweets_cleaned/2019/jun_w3_2019.csv', index = False)
+tweets_jun_w4.to_csv('./2_tweets_cleaned/2019/jun_w4_2019.csv', index = False)

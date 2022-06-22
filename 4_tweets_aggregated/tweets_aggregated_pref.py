@@ -54,4 +54,4 @@ tweets_agg = tweets_agg.merge(tweets_min, how = 'outer', on = ['date', 'prefid']
 tweets_agg = tweets_agg.merge(tweets_max, how = 'outer', on = ['date', 'prefid'])
 tweets_agg = tweets_agg.merge(tweets_variance, how = 'outer', on = ['date', 'prefid'])
 
-tweets_agg.to_csv('./4_tweets_aggregated/tweets_agg_pref.csv', index = False)
+tweets_agg.to_csv('./4_tweets_aggregated/oseti_tweets_pref.csv', index = False)

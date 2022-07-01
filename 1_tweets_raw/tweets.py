@@ -5,17 +5,17 @@ import tweepy
 # If this code has been downloaded from github, please create a new Python file called
 # twitter_authentication containing bearer_token = "INSERT YOUR BEARER TOKEN HERE" in the
 # same directory as this Python file 
-from twitter_authentication import bearer_token_2
+from twitter_authentication import bearer_token_1
 
-client = tweepy.Client(bearer_token_2, wait_on_rate_limit=True)
+client = tweepy.Client(bearer_token_1, wait_on_rate_limit=True)
 
 symptoms_tweets = []
 
 for response in tweepy.Paginator(client.search_all_tweets, 
                                 query = '-is:retweet -is:nullcast has:geo place_country:JP',
                                 tweet_fields = ['author_id', 'created_at', 'geo', 'id', 'lang', 'public_metrics', 'source', 'text'],
-                                start_time = '2018-06-22T00:00:00+09:00',
-                                end_time = '2018-06-30T23:59:59+09:00',
+                                start_time = '2017-02-01T00:00:00+09:00',
+                                end_time = '2017-02-07T23:59:59+09:00',
                                 max_results=500):
     time.sleep(1)
     symptoms_tweets.append(response)
@@ -38,4 +38,4 @@ for response in symptoms_tweets:
 # Change this list of dictionaries into a dataframe
 tweets = pd.DataFrame(result)
 
-tweets.to_csv('./1_tweets_raw/2018/jun_w4_2018.csv', index = False)
+tweets.to_csv('./1_tweets_raw/2017/feb_w1_2017.csv', index = False)

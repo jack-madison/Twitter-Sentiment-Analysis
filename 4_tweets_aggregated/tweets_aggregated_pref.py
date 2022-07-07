@@ -3,14 +3,14 @@ import numpy as np
 
 tweets_analysed = pd.DataFrame()
 
-weeks = ['feb_w1_2019', 'feb_w2_2019', 'feb_w3_2019', 'feb_w4_2019', 
-'mar_w1_2019', 'mar_w2_2019', 'mar_w3_2019', 'mar_w4_2019', 
-'apr_w1_2019', 'apr_w2_2019', 'apr_w3_2019', 'apr_w4_2019', 
-'may_w1_2019', 'may_w2_2019', 'may_w3_2019', 'may_w4_2019',
-'jun_w1_2019', 'jun_w2_2019', 'jun_w3_2019', 'jun_w4_2019']
+weeks = ['feb_w1_2018', 'feb_w2_2018', 'feb_w3_2018', 'feb_w4_2018', 
+'mar_w1_2018', 'mar_w2_2018', 'mar_w3_2018', 'mar_w4_2018', 
+'apr_w1_2018', 'apr_w2_2018', 'apr_w3_2018', 'apr_w4_2018', 
+'may_w1_2018', 'may_w2_2018', 'may_w3_2018', 'may_w4_2018',
+'jun_w1_2018', 'jun_w2_2018', 'jun_w3_2018', 'jun_w4_2018']
 
 for week in weeks:
-    df = pd.read_csv('./3_tweets_analysed/2019/' + str(week) + '.csv', engine='python')
+    df = pd.read_csv('./' + str(week) + '_oseti.csv', engine='python')
     df = df[['tweet_created_at', 'prefid', 'positive', 'negative', 'oseti_score1', 'oseti_score2']]
     tweets_analysed = pd.concat([tweets_analysed, df], axis = 0, ignore_index = True)
     print(week)
@@ -54,4 +54,4 @@ tweets_agg = tweets_agg.merge(tweets_min, how = 'outer', on = ['date', 'prefid']
 tweets_agg = tweets_agg.merge(tweets_max, how = 'outer', on = ['date', 'prefid'])
 tweets_agg = tweets_agg.merge(tweets_variance, how = 'outer', on = ['date', 'prefid'])
 
-tweets_agg.to_csv('./4_tweets_aggregated/oseti_tweets_pref.csv', index = False)
+tweets_agg.to_csv('./oseti_tweets_pref_2018.csv', index = False)

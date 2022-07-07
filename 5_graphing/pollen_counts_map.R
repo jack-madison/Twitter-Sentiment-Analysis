@@ -47,7 +47,10 @@ pollen_station_master <- read_excel("GitHub/Twitter-Sentiment-Analysis/5_graphin
 
 pollen_station_master <- subset(pollen_station_master, last_year >= 2019)
 
-ggplot() + geom_polygon(data = df, aes(x = long, y = lat, group = group, fill = pollen)) + geom_point(data = pollen_station_master, aes(x = longitude, y = latitude), col="red", size=1) + theme_void() + coord_equal(xlim = c(127, 147), ylim = c(30,46)) + scale_fill_gradient(high = "#02b818", low = "#9cf7a7", name = "Average Daily Pollen in 2019", trans = "log", labels = comma, breaks = my_breaks) + ggtitle("Average Daily Pollen Counts in Japan (2019)")
+pollen_station_master$station <- "Pollen Count Station"
+
+
+ggplot() + geom_polygon(data = df, aes(x = long, y = lat, group = group, fill = pollen)) + geom_point(data = pollen_station_master, aes(x = longitude, y = latitude, color = station), size=1) + labs(color = "") + theme_void() + coord_equal(xlim = c(127, 147), ylim = c(30,46)) + scale_fill_gradient(high = "#132B43", low = "#56B1F7", name = "Average Daily Pollen in 2019", labels = comma) + ggtitle("Average Daily Pollen Counts in Japan (2019)")
 
 
 

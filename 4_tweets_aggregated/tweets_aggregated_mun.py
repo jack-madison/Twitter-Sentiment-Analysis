@@ -10,7 +10,7 @@ weeks = ['feb_w1_2019', 'feb_w2_2019', 'feb_w3_2019', 'feb_w4_2019',
 'jun_w1_2019', 'jun_w2_2019', 'jun_w3_2019', 'jun_w4_2019']
 
 for week in weeks:
-    df = pd.read_csv('./3_tweets_analysed/2019/' + str(week) + '.csv', engine='python')
+    df = pd.read_csv('./3_tweets_analysed/2019/' + str(week) + '_oseti.csv', engine='python')
     df = df[['tweet_created_at', 'mun_id', 'positive', 'negative', 'oseti_score1', 'oseti_score2']]
     tweets_analysed = pd.concat([tweets_analysed, df], axis = 0, ignore_index = True)
     print(week)

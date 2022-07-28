@@ -1,0 +1,1 @@
+The 2019 tweets that have been cleaned up and prepared for Oseti go in this folder. They have been archived to reduce the size of this repository.

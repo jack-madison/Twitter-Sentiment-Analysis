@@ -7,8 +7,8 @@ def daterange(start_date, end_date):
 
 mun_list = pd.read_csv('./4_tweets_aggregated/mun_list.csv')
 
-start_date = date(2017, 2, 1)
-end_date = date(2017, 7, 1)
+start_date = date(2016, 2, 1)
+end_date = date(2016, 7, 1)
 
 df = pd.DataFrame()
 
@@ -18,10 +18,10 @@ for single_date in daterange(start_date, end_date):
 
 df = df[['date', 'mun_id', 'municipality', 'prefid', 'pref', 'mun_X', 'mun_Y']]
 
-tweets_agg = pd.read_csv('./4_tweets_aggregated/2017/tweets_agg_mun_2017.csv')
+tweets_agg = pd.read_csv('./4_tweets_aggregated/2016/tweets_agg_mun_2016.csv')
 
 df = pd.merge(df, tweets_agg, how = 'left', on = ['date', 'mun_id'])
 
 df['tweet_count'] = df['tweet_count'].fillna(0)
 
-df.to_csv('./4_tweets_aggregated/2017/oseti_tweets_mun_2017.csv', index = False)
+df.to_csv('./4_tweets_aggregated/2016/oseti_tweets_mun_2016.csv', index = False)

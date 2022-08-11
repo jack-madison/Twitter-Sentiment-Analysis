@@ -10,6 +10,8 @@ library(reshape2)
 library(sampling)
 library(sp)
 library(splines)
+library(tidyverse)
+library(readxl)
 
 
 #write a function to generate lags. data need to be sorted

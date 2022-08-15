@@ -5,9 +5,9 @@ import tweepy
 # If this code has been downloaded from github, please create a new Python file called
 # twitter_authentication containing bearer_token = "INSERT YOUR BEARER TOKEN HERE" in the
 # same directory as this Python file 
-from twitter_authentication import bearer_token_5
+from twitter_authentication import bearer_token_6
 
-client = tweepy.Client(bearer_token_5, wait_on_rate_limit=True)
+client = tweepy.Client(bearer_token_6, wait_on_rate_limit=True)
 
 symptoms_tweets = []
 

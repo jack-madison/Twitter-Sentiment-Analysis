@@ -3,10 +3,10 @@
 import pandas as pd
 import numpy as np
 
-week1 = pd.read_csv('./1_tweets_raw/2016/jun_w1_2016.csv')
-week2 = pd.read_csv('./1_tweets_raw/2016/jun_w2_2016.csv')
-week3 = pd.read_csv('./1_tweets_raw/2016/jun_w3_2016.csv')
-week4 = pd.read_csv('./1_tweets_raw/2016/jun_w4_2016.csv')
+week1 = pd.read_csv('./1_tweets_raw/2015/jun_w1_2015.csv')
+week2 = pd.read_csv('./1_tweets_raw/2015/jun_w2_2015.csv')
+week3 = pd.read_csv('./1_tweets_raw/2015/jun_w3_2015.csv')
+week4 = pd.read_csv('./1_tweets_raw/2015/jun_w4_2015.csv')
 
 month = week1.append(week2)
 month = month.append(week3)
@@ -18,4 +18,4 @@ month = month.sort_values(by = 'tweet_created_at')
 
 month = month.reset_index(drop = True)
 
-month.to_csv('./1_tweets_raw/2016/06_2016.csv')
+month.to_csv('./1_tweets_raw/2015/06_2015.csv')

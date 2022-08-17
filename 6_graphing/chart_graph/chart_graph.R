@@ -34,7 +34,7 @@ lz <- c(4.5, 8.5, 10.5, 14.5, 16.5)
 
 # Specify the placement of the category labels
 ### Place the category labels at the midpoint of each category (i.e. first category has 4 elements so place at 2.5)###
-cat_locs <- c(2.5, 6.5, 9.5, 12.5, 15.5, 18.5)
+cat_locs <- c(18.5, 15.5, 12.5, 9.5, 6.5, 2.5)
 
 # Plot
 

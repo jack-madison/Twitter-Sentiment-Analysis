@@ -3,10 +3,10 @@ import numpy as np
 import math
 
 # Read in the tweet location list
-locations = pd.read_csv('./locations/locations.csv')
+locations = pd.read_csv('./2_locations/locations.csv')
 
 # Read in the municipality list
-municipalities = pd.read_csv('./locations/mun_list.csv')
+municipalities = pd.read_csv('./2_locations/mun_list.csv')
 
 # Subset the municipalities dataset to give just the lat, lon, and mun_id
 mun_ids = municipalities[['mun_id', 'mun_X', 'mun_Y']]
@@ -68,4 +68,4 @@ locations.loc[(locations.tweet_location_id == '30712571d1d88380'),'mun_id'] = 27
 locations = pd.merge(locations, municipalities, how = 'left', on = 'mun_id')
 
 # Output to CSV
-locations.to_csv('./locations/matched_locations.csv', index = False)
+locations.to_csv('./2_locations/matched_locations.csv', index = False)

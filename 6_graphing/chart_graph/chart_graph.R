@@ -49,15 +49,15 @@ par(mgp=c(2,0.8,0),mar=c(5,4,4,3),lend=1)
 ### To change the x axis label, change the xlab text ###
 ### In order to have the graph portion of the table be scaled correctly you will have to adjust the xlim() options ###
 ### If the graph is too narrow, reduce the range of the xlim. If the graph is too wide, increase the xlim range ###
-plot(1,type="n",xlim=c(-1.1,0.8),ylim=c(1,dim(estimates)[1]),axes=F,ylab="",xlab="% change in monthly suicide rate")
+plot(1, type="n", xlim=c(-1.1,0.8), ylim=c(1,dim(estimates)[1]+1), axes=F, ylab="", xlab="                                                                                              % Change in Vehicle Accidents", cex.lab = 0.65)
 
 # More plot options
-abline(v=xx,lwd=0.5,col="grey",lty=2)
-abline(v=0,lwd=0.5)
-segments(cilo,nn,cihi,nn)
-points(tp,nn,pch=21,bg=colz,cex=1.2)
-abline(h=lz,lwd=0.75,lty=1,col="grey")
-axis(1,at=xx,labels=xx)
+abline(v=xx, lwd=0.5, col="grey", lty=2)
+abline(v=0, lwd=0.5)
+segments(cilo, nn, cihi, nn)
+points(tp, nn, pch=21, bg=colz, cex = 0.65)
+abline(h=lz, lwd=0.75, lty=1, col="grey")
+axis(1, at=xx, labels=xx, cex.axis=0.65)
 
 # Place the text columns
 ### You will have to play around with the first number in each of the text() options ###
@@ -68,5 +68,11 @@ text(-0.75,nn,txt2,cex=0.65,pos=4)
 text(-0.5,nn,format(estimates$N,big.mark = ","),pos=4,cex=0.65)
 text(-0.25,nn,formatC(round(br,2),digits=2,format="f"),cex=0.65,pos=4)
 text(0.75,nn,ci,cex=0.65)
+
+text(-1.16, dim(estimates)[1]+1, "Category", cex=0.65, pos=4)
+text(-0.75, dim(estimates)[1]+1, "Group", cex=0.65, pos=4)
+text(-0.50, dim(estimates)[1]+1, "N", pos=4, cex=0.65)
+text(-0.25, dim(estimates)[1]+1, "Mean", cex=0.65, pos=4)
+text(00.75, dim(estimates)[1]+1, "Estimate (95% CI)", cex=0.65)
 
 dev.off()

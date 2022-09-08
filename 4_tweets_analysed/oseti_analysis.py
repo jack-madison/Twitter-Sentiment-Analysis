@@ -2,32 +2,35 @@ import oseti
 import pandas as pd
 import numpy as np
 
-analyzer = oseti.Analyzer()
+dates = ['feb_w2', 'feb_w4', 'mar_w2', 'mar_w4', 'apr_w2', 'apr_w4', 'may_w2', 'may_w4', 'jun_w2', 'jun_w4']
 
-tweets = pd.read_csv('https://media.githubusercontent.com/media/jack-madison/Twitter-Sentiment-Analysis/main/all_tweets/prepared_tweets/2019/feb_w3_2019.csv')
+for date in dates:
+    analyzer = oseti.Analyzer()
 
-tweets['positive'] = np.nan
-tweets['negative'] = np.nan
+    tweets = pd.read_csv('https://media.githubusercontent.com/media/jack-madison/Twitter-Sentiment-Analysis/main/all_tweets/3_tweets_cleaned/2014/' + str(date) + '_2014.csv')
 
-for x in range(len(tweets)):
-    polarities = analyzer.count_polarity(str(tweets['tweet_text'][x]).replace('\n', ' ').replace('\r', ' '))
+    tweets['positive'] = np.nan
+    tweets['negative'] = np.nan
 
-    positive = 0
-    negative = 0
+    for x in range(len(tweets)):
+        polarities = analyzer.count_polarity(str(tweets['tweet_text'][x]).replace('\n', ' ').replace('\r', ' '))
 
-    for sentence in polarities:
-        positive = positive + sentence['positive']
-        negative = negative + sentence['negative']
+        positive = 0
+        negative = 0
 
-    tweets['positive'][x] = positive
-    tweets['negative'][x] = negative
+        for sentence in polarities:
+            positive = positive + sentence['positive']
+            negative = negative + sentence['negative']
 
-    print(x)
+        tweets['positive'][x] = positive
+        tweets['negative'][x] = negative
 
-tweets['oseti_score1'] = tweets['positive'] - tweets['negative']
+        print(x)
 
-tweets['oseti_score2'] = tweets['oseti_score1'] / (tweets['positive'] + tweets['negative'])
+    tweets['oseti_score1'] = tweets['positive'] - tweets['negative']
 
-tweets['oseti_score2'] = tweets['oseti_score2'].fillna(0)
+    tweets['oseti_score2'] = tweets['oseti_score1'] / (tweets['positive'] + tweets['negative'])
 
-tweets.to_csv('./feb_w3_2019_oseti.csv', index = False)
+    tweets['oseti_score2'] = tweets['oseti_score2'].fillna(0)
+
+    tweets.to_csv('./' + str(date) + '_2014_oseti.csv', index = False)
